@@ -1,0 +1,11 @@
+﻿@model Musicalog.Web.Models.AlbumListModel
+@{ 
+    ViewBag.Title = "Musicalog - Album List";
+}
+
+@Styles.Render("~/Content/App")
+
+<app view="list"
+     album-list-page-size="@Model.PageSize"></app>
+
+@Scripts.Render("~/bundles/App")

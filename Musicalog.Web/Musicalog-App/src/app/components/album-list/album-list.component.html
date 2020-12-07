@@ -1,0 +1,40 @@
+<div>
+  <h1>Home <a mat-raised-button href="/Album/Create">Create Album</a></h1>
+
+  <section id="album-list" *ngIf="albums else loading">
+
+    <table matSort (matSortChange)="sortAlbums($event)">
+      <tr>
+        <th mat-sort-header="name">Album</th>
+        <th mat-sort-header="type">Type</th>
+        <th mat-sort-header="artist">Artist</th>
+        <th mat-sort-header="stock">Stock</th>
+        <th></th>
+      </tr>
+
+      <tr *ngFor="let album of sortedAlbums">
+        <td> {{album.Name}} </td>
+        <td> {{album.Type}} </td>
+        <td> {{album.Artists[0].Name}} </td>
+        <td> {{album.Inventory.Stock}}</td>
+        <td> <a mat-raised-button href="/Album/Detail/{{album.Id}}">Edit</a> </td>
+        <td>
+          <button mat-raised-button color="warn" (click)="deleteAlbum(album)">Delete</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6">
+          <mat-paginator [length]="totalAlbums"
+                         [pageSize]="pageSize"
+                         [pageSizeOptions]="[5, 10, 25, 100]"
+                         (page)="pageEvent = getAlbumsPage($event)">
+          </mat-paginator>
+        </td>
+      </tr>
+    </table>
+
+  </section>
+  <ng-template #loading>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</div>
