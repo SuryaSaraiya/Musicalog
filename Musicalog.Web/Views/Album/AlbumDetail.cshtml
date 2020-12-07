@@ -1,0 +1,10 @@
+﻿@model int
+@{ 
+    ViewBag.Title = "Musicalog - Album Detail";
+}
+
+@Styles.Render("~/Content/App")
+
+<app view="detail" view-data-album-id="@Model" ></app>
+
+@Scripts.Render("~/bundles/App")

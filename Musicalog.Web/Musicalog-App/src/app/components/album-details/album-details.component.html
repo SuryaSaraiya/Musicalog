@@ -1,0 +1,53 @@
+<div *ngIf="album else loading">
+
+  <h1><a class="home" href="/Album/List">Home</a> / {{album.Name}}</h1>
+  <section id="album-detail-view" class="album" *ngIf="!editing()">
+    <label>Album</label>
+    <div class="album__property">{{album.Name}}</div>
+    <label>Type</label>
+    <div class="album__property">{{album.Type}}</div>
+    <label>Artist</label>
+    <div class="album__property">{{album.Artists[0].Name}}</div>
+    <label>Stock</label>
+    <div class="album__property">{{album.Inventory.Stock}}</div>
+
+    <div class="action-bar">
+      <button mat-raised-button color="primary" *ngIf="!editing()" (click)="editAlbum()">Edit</button>
+    </div>
+  </section>
+
+  <section id="album-detail-edit" class="album" *ngIf="editing()">
+    <form [formGroup]="albumForm" (ngSubmit)="onAlbumFormSubmit(albumForm.value)">
+      <mat-form-field>
+        <mat-label>Album</mat-label>
+        <input matInput placeholder="album name" formControlName="Name" name="albumName">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Type</mat-label>
+        <mat-select formControlName="Type">
+          <mat-option [value]="albumTypes[key]" *ngFor="let key of albumTypeKeys">{{ albumTypes[key] }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Artist</mat-label>
+        <input matInput placeholder="artist" formControlName="Artist" name="artist">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Stock</mat-label>
+        <input matInput placeholder="stock" formControlName="Stock" name="stock">
+      </mat-form-field>
+
+      <div class="action-bar">
+        <button mat-raised-button (click)="cancelEdit()">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">Save</button>        
+      </div>
+    </form>
+  </section>
+</div>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>
