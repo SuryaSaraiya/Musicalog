@@ -14,7 +14,7 @@ namespace Musicalog.Api
 
             //MediatR.Extensions.Microsoft.DependencyInjection
             // services.AddMediatR(Assembley.GetExecutingAssembley);
-            AutofacWebapiConfig.Initialize(GlobalConfiguration.Configuration);
+            AutofacConfig.Initialize(GlobalConfiguration.Configuration);
 
             // Web API routes
             config.MapHttpAttributeRoutes();

@@ -338,4 +338,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-/Musicalog.Api/App_Data/Log-20201208.txt
+#/Musicalog.Api/App_Data/Log-20201208.txt

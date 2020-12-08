@@ -14,7 +14,7 @@ using System.Web.Http;
 
 namespace Musicalog.Api
 {
-    public class AutofacWebapiConfig
+    public class AutofacConfig
     {
 
         public static IContainer Container;
