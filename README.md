@@ -10,6 +10,7 @@ Musicalog MVC Webapi Angular App
 * Sorting is only client side. Further refactoring required for server side sorting.
 * Search by name/artist etc.
 * Allow for multiple artists, artist lookup, add artists etc.
+* Form Validations (pending)
 
 ## Non Functional
 
