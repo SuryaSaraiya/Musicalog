@@ -20,7 +20,7 @@
   <section id="album-detail-edit" class="album col-xs-12 col-md-8 col-lg-6" *ngIf="editing()">
     <form [formGroup]="albumForm" (ngSubmit)="onAlbumFormSubmit(albumForm.value)">
       <mat-form-field>
-        <mat-label>Album</mat-label>
+        <mat-label>Album (max 20 characters)</mat-label>
         <input matInput placeholder="album name" formControlName="Name" name="albumName">
       </mat-form-field>
 
@@ -32,13 +32,13 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Artist</mat-label>
+        <mat-label>Artist (max 20 characters)</mat-label>
         <input matInput placeholder="artist" formControlName="Artist" name="artist">
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Stock</mat-label>
-        <input matInput placeholder="stock" formControlName="Stock" name="stock">
+        <input matInput type="number" maxlength="8" placeholder="stock" formControlName="Stock" name="stock">
       </mat-form-field>
 
       <div class="action-bar">

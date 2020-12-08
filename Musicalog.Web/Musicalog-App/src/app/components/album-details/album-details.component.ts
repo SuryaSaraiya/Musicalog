@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { Location } from '@angular/common';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AlbumType } from '../../shared/enums/AlbumType';
 import AlbumModel from '../../shared/models/AlbumModel';
@@ -58,10 +58,10 @@ export class AlbumDetail implements OnInit {
   editAlbum() {
     this.mode = Mode.Edit;
     this.albumForm = this.formBuilder.group({
-      Name: this.album.Name,
-      Type: this.album.Type,
-      Artist: this.album.Artists != undefined ? this.album.Artists[0].Name : '',
-      Stock: this.album.Inventory != undefined ? this.album.Inventory.Stock : 0
+      Name: [this.album.Name, [Validators.required, Validators.maxLength(20)]],
+      Type: [this.album.Type, Validators.required],
+      Artist: [this.album.Artists != undefined ? this.album.Artists[0].Name : '', [Validators.required, Validators.maxLength(20)]],
+      Stock: [this.album.Inventory != undefined ? this.album.Inventory.Stock : 0, [Validators.required, Validators.min(1), Validators.pattern("^[0-9]*$"), Validators.maxLength(8)]]
     });
   }
 
@@ -74,6 +74,11 @@ export class AlbumDetail implements OnInit {
   }
 
   onAlbumFormSubmit(albumData: any) {
+
+    if (this.albumForm.invalid) {
+      return;
+    }
+
     if (this.album.Id == 0) {
       this.createAlbum(albumData);
     }

@@ -584,10 +584,10 @@ var AlbumType;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlbumDetail", function() { return AlbumDetail; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _shared_enums_AlbumType__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/enums/AlbumType */ "eMmM");
-/* harmony import */ var _shared_services_app_album_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/services/app.album.service */ "HMTF");
-/* harmony import */ var _confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../confirm-dialog/confirm-dialog.component */ "CPJB");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _shared_enums_AlbumType__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/enums/AlbumType */ "eMmM");
+/* harmony import */ var _shared_services_app_album_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/services/app.album.service */ "HMTF");
+/* harmony import */ var _confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../confirm-dialog/confirm-dialog.component */ "CPJB");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "ofXK");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ "0IaG");
 /* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/button */ "bTqV");
@@ -596,6 +596,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/select */ "d3UM");
 /* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/core */ "FKr1");
 /* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/progress-spinner */ "Xa2L");
+
 
 
 
@@ -683,7 +684,7 @@ function AlbumDetail_div_0_section_6_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function AlbumDetail_div_0_section_6_Template_form_ngSubmit_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r13); const ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r12.onAlbumFormSubmit(ctx_r12.albumForm.value); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-form-field");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "mat-label");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Album");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Album (max 20 characters)");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "input", 13);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -697,7 +698,7 @@ function AlbumDetail_div_0_section_6_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "mat-form-field");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "mat-label");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Artist");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Artist (max 20 characters)");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](14, "input", 16);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -762,8 +763,8 @@ class AlbumDetail {
         this.dialog = dialog;
         this.mode = Mode.View;
         this.title = 'Musicalog - Album Detail';
-        this.albumTypes = _shared_enums_AlbumType__WEBPACK_IMPORTED_MODULE_1__["AlbumType"];
-        this.albumTypeKeys = Object.keys(_shared_enums_AlbumType__WEBPACK_IMPORTED_MODULE_1__["AlbumType"]).filter(k => !isNaN(Number(k)));
+        this.albumTypes = _shared_enums_AlbumType__WEBPACK_IMPORTED_MODULE_2__["AlbumType"];
+        this.albumTypeKeys = Object.keys(_shared_enums_AlbumType__WEBPACK_IMPORTED_MODULE_2__["AlbumType"]).filter(k => !isNaN(Number(k)));
     }
     ngOnInit() {
         if (this.albumId > 0) {
@@ -785,10 +786,10 @@ class AlbumDetail {
     editAlbum() {
         this.mode = Mode.Edit;
         this.albumForm = this.formBuilder.group({
-            Name: this.album.Name,
-            Type: this.album.Type,
-            Artist: this.album.Artists != undefined ? this.album.Artists[0].Name : '',
-            Stock: this.album.Inventory != undefined ? this.album.Inventory.Stock : 0
+            Name: [this.album.Name, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].maxLength(20)]],
+            Type: [this.album.Type, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            Artist: [this.album.Artists != undefined ? this.album.Artists[0].Name : '', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].maxLength(20)]],
+            Stock: [this.album.Inventory != undefined ? this.album.Inventory.Stock : 0, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].min(1), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].pattern("^[0-9]*$"), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].maxLength(8)]]
         });
     }
     cancelEdit() {
@@ -800,6 +801,9 @@ class AlbumDetail {
         }
     }
     onAlbumFormSubmit(albumData) {
+        if (this.albumForm.invalid) {
+            return;
+        }
         if (this.album.Id == 0) {
             this.createAlbum(albumData);
         }
@@ -831,7 +835,7 @@ class AlbumDetail {
         });
     }
     deleteAlbum(album) {
-        let diagRef = this.dialog.open(_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_3__["ConfirmDialog"]);
+        let diagRef = this.dialog.open(_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_4__["ConfirmDialog"]);
         diagRef.afterClosed().subscribe(response => {
             if (response) {
                 this.albumService.deleteAlbum(album.Id).subscribe(data => {
@@ -843,14 +847,14 @@ class AlbumDetail {
         });
     }
 }
-AlbumDetail.ɵfac = function AlbumDetail_Factory(t) { return new (t || AlbumDetail)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_app_album_service__WEBPACK_IMPORTED_MODULE_2__["default"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_5__["Location"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"])); };
-AlbumDetail.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AlbumDetail, selectors: [["album-detail"]], inputs: { mode: "mode", albumId: "albumId" }, decls: 3, vars: 2, consts: [[4, "ngIf", "ngIfElse"], ["loading", ""], ["href", "/Album/List", 1, "home"], ["id", "album-detail-view", "class", "album", 4, "ngIf"], ["id", "album-detail-edit", "class", "album col-xs-12 col-md-8 col-lg-6", 4, "ngIf"], ["id", "album-detail-view", 1, "album"], [1, "album__property"], [1, "action-bar"], ["mat-raised-button", "", "color", "primary", 3, "click", 4, "ngIf"], ["mat-raised-button", "", "color", "warn", 3, "click"], ["mat-raised-button", "", "color", "primary", 3, "click"], ["id", "album-detail-edit", 1, "album", "col-xs-12", "col-md-8", "col-lg-6"], [3, "formGroup", "ngSubmit"], ["matInput", "", "placeholder", "album name", "formControlName", "Name", "name", "albumName"], ["formControlName", "Type"], [3, "value", 4, "ngFor", "ngForOf"], ["matInput", "", "placeholder", "artist", "formControlName", "Artist", "name", "artist"], ["matInput", "", "placeholder", "stock", "formControlName", "Stock", "name", "stock"], ["mat-raised-button", "", 3, "click"], ["mat-raised-button", "", "color", "primary", "type", "submit"], [3, "value"]], template: function AlbumDetail_Template(rf, ctx) { if (rf & 1) {
+AlbumDetail.ɵfac = function AlbumDetail_Factory(t) { return new (t || AlbumDetail)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_app_album_service__WEBPACK_IMPORTED_MODULE_3__["default"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_5__["Location"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"])); };
+AlbumDetail.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AlbumDetail, selectors: [["album-detail"]], inputs: { mode: "mode", albumId: "albumId" }, decls: 3, vars: 2, consts: [[4, "ngIf", "ngIfElse"], ["loading", ""], ["href", "/Album/List", 1, "home"], ["id", "album-detail-view", "class", "album", 4, "ngIf"], ["id", "album-detail-edit", "class", "album col-xs-12 col-md-8 col-lg-6", 4, "ngIf"], ["id", "album-detail-view", 1, "album"], [1, "album__property"], [1, "action-bar"], ["mat-raised-button", "", "color", "primary", 3, "click", 4, "ngIf"], ["mat-raised-button", "", "color", "warn", 3, "click"], ["mat-raised-button", "", "color", "primary", 3, "click"], ["id", "album-detail-edit", 1, "album", "col-xs-12", "col-md-8", "col-lg-6"], [3, "formGroup", "ngSubmit"], ["matInput", "", "placeholder", "album name", "formControlName", "Name", "name", "albumName"], ["formControlName", "Type"], [3, "value", 4, "ngFor", "ngForOf"], ["matInput", "", "placeholder", "artist", "formControlName", "Artist", "name", "artist"], ["matInput", "", "type", "number", "maxlength", "8", "placeholder", "stock", "formControlName", "Stock", "name", "stock"], ["mat-raised-button", "", 3, "click"], ["mat-raised-button", "", "color", "primary", "type", "submit"], [3, "value"]], template: function AlbumDetail_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, AlbumDetail_div_0_Template, 7, 3, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AlbumDetail_ng_template_1_Template, 1, 0, "ng-template", null, 1, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
     } if (rf & 2) {
         const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.album)("ngIfElse", _r1);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], _angular_material_button__WEBPACK_IMPORTED_MODULE_7__["MatButton"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormGroupDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormField"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatLabel"], _angular_material_input__WEBPACK_IMPORTED_MODULE_9__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControlName"], _angular_material_select__WEBPACK_IMPORTED_MODULE_10__["MatSelect"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"], _angular_material_core__WEBPACK_IMPORTED_MODULE_11__["MatOption"], _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_12__["MatSpinner"]], styles: ["h1[_ngcontent-%COMP%] {\n  font-size: 20px;\n}\nh1[_ngcontent-%COMP%]   a.home[_ngcontent-%COMP%] {\n  font-size: 20px;\n}\n.album[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  margin-bottom: 0px;\n}\n.album[_ngcontent-%COMP%]   .album__property[_ngcontent-%COMP%] {\n  font-size: 18px;\n}\n.album[_ngcontent-%COMP%]   mat-form-field[_ngcontent-%COMP%] {\n  display: block;\n}\n.album[_ngcontent-%COMP%]   .action-bar[_ngcontent-%COMP%] {\n  margin: 10px 0px 0px 0px;\n  padding: 10px 0px 10px 0px;\n}\n.album[_ngcontent-%COMP%]   .action-bar[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  margin-right: 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxhbGJ1bS1kZXRhaWxzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBQTtBQUNGO0FBQ0U7RUFDRSxlQUFBO0FBQ0o7QUFLRTtFQUNFLGdCQUFBO0VBQ0Esa0JBQUE7QUFGSjtBQUtFO0VBQ0UsZUFBQTtBQUhKO0FBTUU7RUFDRSxjQUFBO0FBSko7QUFPRTtFQUNFLHdCQUFBO0VBQ0EsMEJBQUE7QUFMSjtBQU9JO0VBQ0Usa0JBQUE7QUFMTiIsImZpbGUiOiJhbGJ1bS1kZXRhaWxzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaDEge1xyXG4gIGZvbnQtc2l6ZTogMjBweDtcclxuXHJcbiAgYS5ob21lIHtcclxuICAgIGZvbnQtc2l6ZTogMjBweDtcclxuICB9XHJcbn1cclxuXHJcbi5hbGJ1bSB7XHJcblxyXG4gIGxhYmVsIHtcclxuICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbiAgfVxyXG5cclxuICAuYWxidW1fX3Byb3BlcnR5IHtcclxuICAgIGZvbnQtc2l6ZTogMThweDtcclxuICB9XHJcblxyXG4gIG1hdC1mb3JtLWZpZWxkIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gIH1cclxuXHJcbiAgLmFjdGlvbi1iYXIge1xyXG4gICAgbWFyZ2luOiAxMHB4IDBweCAwcHggMHB4O1xyXG4gICAgcGFkZGluZzogMTBweCAwcHggMTBweCAwcHg7XHJcblxyXG4gICAgYnV0dG9uIHtcclxuICAgICAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xyXG4gICAgfVxyXG4gIH1cclxufVxyXG4iXX0= */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], _angular_material_button__WEBPACK_IMPORTED_MODULE_7__["MatButton"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormField"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatLabel"], _angular_material_input__WEBPACK_IMPORTED_MODULE_9__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_material_select__WEBPACK_IMPORTED_MODULE_10__["MatSelect"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["MaxLengthValidator"], _angular_material_core__WEBPACK_IMPORTED_MODULE_11__["MatOption"], _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_12__["MatSpinner"]], styles: ["h1[_ngcontent-%COMP%] {\n  font-size: 20px;\n}\nh1[_ngcontent-%COMP%]   a.home[_ngcontent-%COMP%] {\n  font-size: 20px;\n}\n.album[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  margin-bottom: 0px;\n}\n.album[_ngcontent-%COMP%]   .album__property[_ngcontent-%COMP%] {\n  font-size: 18px;\n}\n.album[_ngcontent-%COMP%]   mat-form-field[_ngcontent-%COMP%] {\n  display: block;\n}\n.album[_ngcontent-%COMP%]   .action-bar[_ngcontent-%COMP%] {\n  margin: 10px 0px 0px 0px;\n  padding: 10px 0px 10px 0px;\n}\n.album[_ngcontent-%COMP%]   .action-bar[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  margin-right: 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxhbGJ1bS1kZXRhaWxzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBQTtBQUNGO0FBQ0U7RUFDRSxlQUFBO0FBQ0o7QUFLRTtFQUNFLGdCQUFBO0VBQ0Esa0JBQUE7QUFGSjtBQUtFO0VBQ0UsZUFBQTtBQUhKO0FBTUU7RUFDRSxjQUFBO0FBSko7QUFPRTtFQUNFLHdCQUFBO0VBQ0EsMEJBQUE7QUFMSjtBQU9JO0VBQ0Usa0JBQUE7QUFMTiIsImZpbGUiOiJhbGJ1bS1kZXRhaWxzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaDEge1xyXG4gIGZvbnQtc2l6ZTogMjBweDtcclxuXHJcbiAgYS5ob21lIHtcclxuICAgIGZvbnQtc2l6ZTogMjBweDtcclxuICB9XHJcbn1cclxuXHJcbi5hbGJ1bSB7XHJcblxyXG4gIGxhYmVsIHtcclxuICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbiAgfVxyXG5cclxuICAuYWxidW1fX3Byb3BlcnR5IHtcclxuICAgIGZvbnQtc2l6ZTogMThweDtcclxuICB9XHJcblxyXG4gIG1hdC1mb3JtLWZpZWxkIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gIH1cclxuXHJcbiAgLmFjdGlvbi1iYXIge1xyXG4gICAgbWFyZ2luOiAxMHB4IDBweCAwcHggMHB4O1xyXG4gICAgcGFkZGluZzogMTBweCAwcHggMTBweCAwcHg7XHJcblxyXG4gICAgYnV0dG9uIHtcclxuICAgICAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xyXG4gICAgfVxyXG4gIH1cclxufVxyXG4iXX0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AlbumDetail, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -858,7 +862,7 @@ AlbumDetail.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompon
                 templateUrl: './album-details.component.html',
                 styleUrls: ['./album-details.component.scss']
             }]
-    }], function () { return [{ type: _shared_services_app_album_service__WEBPACK_IMPORTED_MODULE_2__["default"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }, { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }, { type: _angular_common__WEBPACK_IMPORTED_MODULE_5__["Location"] }, { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"] }]; }, { mode: [{
+    }], function () { return [{ type: _shared_services_app_album_service__WEBPACK_IMPORTED_MODULE_3__["default"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }, { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"] }, { type: _angular_common__WEBPACK_IMPORTED_MODULE_5__["Location"] }, { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"] }]; }, { mode: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
             args: ["mode"]
         }], albumId: [{
