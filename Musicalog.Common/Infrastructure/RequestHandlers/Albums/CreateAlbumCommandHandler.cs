@@ -2,6 +2,7 @@
 using Musicalog.Common.Data;
 using Musicalog.Common.Data.Models;
 using Musicalog.Common.Models;
+using Serilog;
 using System;
 using System.Linq;
 using System.Threading;
@@ -13,6 +14,13 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
     {
 
         private static Random random = new Random();
+        private readonly ILogger _logger;
+
+        public CreateAlbumCommandHandler(ILogger logger)
+        {
+            _logger = logger;
+        }
+
 
         public async Task<int> Handle(CreateAlbumCommand request, CancellationToken cancellationToken)
         {
@@ -20,6 +28,7 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
             var albumId = 0;
             try
             {
+                _logger.Information("Request for creating album {@request}", request);
                 using (var context = AlbumsDbContext.Create())
                 {
                     using (var transaction = context.Database.BeginTransaction())
@@ -71,10 +80,12 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
                     }
                 }
 
+                _logger.Information("Album was created with id {id}", albumId);
                 return albumId;
             }
             catch (Exception ex)
             {
+                _logger.Error(ex, "Errored creating album with message {message}", ex.Message);
                 return 0;
             }
         }

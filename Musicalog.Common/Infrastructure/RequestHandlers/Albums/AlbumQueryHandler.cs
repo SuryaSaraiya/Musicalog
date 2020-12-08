@@ -2,6 +2,8 @@
 using Musicalog.Common.Data;
 using Musicalog.Common.Data.Models;
 using Musicalog.Common.Models;
+using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -11,12 +13,28 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
 {
     public class AlbumQueryHandler : IRequestHandler<AlbumQuery, AlbumModel>
     {
+        private readonly ILogger _logger;
+
+        public AlbumQueryHandler(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         public async Task<AlbumModel> Handle(AlbumQuery request, CancellationToken cancellationToken)
         {
-            var albums = QueryAlbumById(request.Id);
+            try
+            {
+                _logger.Information("Requesting album details for {@request}", request);
+                var album = QueryAlbumById(request.Id);
 
-            return await Task.FromResult(albums);
-
+                _logger.Information("Returning requested album info as {@album}", album);
+                return await Task.FromResult(album);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Errored getting album {id} with message {message}", request.Id, ex.Message);
+                return await Task.FromResult<AlbumModel>(null);
+            }
         }
 
         private AlbumModel QueryAlbumById(int id)

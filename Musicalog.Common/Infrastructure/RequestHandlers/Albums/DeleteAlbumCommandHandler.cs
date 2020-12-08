@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Musicalog.Common.Data;
+using Serilog;
 using System;
 using System.Linq;
 using System.Threading;
@@ -9,10 +10,19 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
 {
     public class DeleteAlbumCommandHandler : IRequestHandler<DeleteAlbumCommand, bool>
     {
+
+        private readonly ILogger _logger;
+
+        public DeleteAlbumCommandHandler(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         public async Task<bool> Handle(DeleteAlbumCommand request, CancellationToken cancellationToken)
         {
             try
             {
+                _logger.Information("Request to delete album {@Request}", request);
                 using (var context = AlbumsDbContext.Create())
                 {
                     using (var transaction = context.Database.BeginTransaction())
@@ -46,10 +56,12 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
                     }
                 }
 
+                _logger.Information("Album successfully deleted");
                 return true;
             }
             catch (Exception ex)
             {
+                _logger.Error(ex, "Errored trying to delete album with message {message}", ex.Message);
                 return false;
             }
         }

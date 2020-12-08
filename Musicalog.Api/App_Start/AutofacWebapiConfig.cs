@@ -5,6 +5,8 @@ using Musicalog.Common.Data;
 using Musicalog.Common.Infrastructure.RequestHandlers.Albums;
 using Musicalog.Common.Infrastructure.Services;
 using Musicalog.Common.Models;
+using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Reflection;
@@ -30,7 +32,15 @@ namespace Musicalog.Api
 
         private static IContainer RegisterServices(ContainerBuilder builder)
         {
-            //Register your Web API controllers.  
+
+            builder.Register<ILogger>((c, p) =>
+            {
+                return new LoggerConfiguration()
+                    .WriteTo.Console()
+                    .WriteTo.RollingFile(AppDomain.CurrentDomain.GetData("DataDirectory").ToString() + "/Log-{Date}.txt")
+                    .CreateLogger();
+            }).SingleInstance();
+
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             builder.RegisterType<Mediator>()
@@ -62,21 +72,6 @@ namespace Musicalog.Api
                 .As<IAlbumService>()
                 .InstancePerRequest();
 
-            /*
-            builder.RegisterType<AlbumsDbContext>()
-                   .As<DbContext>()
-                   .InstancePerRequest();
-
-            builder.RegisterType<DbFactory>()
-                   .As<IDbFactory>()
-                   .InstancePerRequest();
-
-            builder.RegisterGeneric(typeof(GenericRepository<>))
-                   .As(typeof(IGenericRepository<>))
-                   .InstancePerRequest();
-            */
-
-            //Set the dependency resolver to be Autofac.  
             Container = builder.Build();
 
             return Container;

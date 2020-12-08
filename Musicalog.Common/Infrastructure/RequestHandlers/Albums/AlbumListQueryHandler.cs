@@ -2,6 +2,8 @@
 using Musicalog.Common.Data;
 using Musicalog.Common.Data.Models;
 using Musicalog.Common.Models;
+using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -11,16 +13,32 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
 {
     public class AlbumListQueryHandler : IRequestHandler<AlbumListQuery, AlbumListResult>
     {
+
+        private readonly ILogger _logger;
+        public AlbumListQueryHandler(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         public async Task<AlbumListResult> Handle(AlbumListQuery request, CancellationToken cancellationToken)
         {
-            var albums = GetAllAlbums(request.Skip, request.Take, out int count);
-
-            return await Task.FromResult(new AlbumListResult
+            try
             {
-                Albums = albums,
-                Total = count
-            });
+                _logger.Information("Requesting album list {@request}", request);
+                var albums = GetAllAlbums(request.Skip, request.Take, out int count);
 
+                _logger.Information("Returning the requested page of albums from a total of {Count} albums", count);
+                return await Task.FromResult(new AlbumListResult
+                {
+                    Albums = albums,
+                    Total = count
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Errored while getting list of albums {Message}", ex.Message);
+                return await Task.FromResult<AlbumListResult>(null);
+            }
         }
 
         private List<AlbumModel> GetAllAlbums(int skip, int take, out int count)
@@ -38,7 +56,7 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
                                   Artists = g.ToList(),
                                   Inventory = g.Key.inv
                               });
-                    
+
 
                 count = albums.Count();
 
