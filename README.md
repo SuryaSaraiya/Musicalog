@@ -15,4 +15,7 @@ Musicalog MVC Webapi Angular App
 5. API Response Codes to identify errors (i.e, invalid albumid etc)
 6. Move api base URL to web.config
 7. Responsive/bootstraped UI
-8. Codecoverage
+8. ~API Codecoverage~
+9. Common CodeCoverage
+10. Web Codecoverage
+11. UI codecoverage
