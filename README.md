@@ -14,7 +14,7 @@ Musicalog MVC Webapi Angular App
 5. Allow for multiple artists, artist lookup, add artists etc.
 5. API Response Codes to identify errors (i.e, invalid albumid etc)
 6. Move api base URL to web.config
-7. Responsive/bootstraped UI
+7. Responsive/bootstraped UI **IN PROGRESS**
 8. ~API Codecoverage~
 9. Common CodeCoverage
 10. Web Codecoverage
