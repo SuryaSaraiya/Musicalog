@@ -44,30 +44,30 @@ __webpack_require__.r(__webpack_exports__);
 function AlbumList_table_7_tr_11_Template(rf, ctx) { if (rf & 1) {
     const _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "span", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "span", 14);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "a", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "a", 15);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "td");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "td");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "td", 13);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "td");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "td");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "a", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "a", 16);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Edit");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "td");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "button", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "button", 17);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AlbumList_table_7_tr_11_Template_button_click_16_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6); const album_r4 = ctx.$implicit; const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r5.deleteAlbum(album_r4); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Delete");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -192,7 +192,7 @@ class AlbumList {
     }
 }
 AlbumList.ɵfac = function AlbumList_Factory(t) { return new (t || AlbumList)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_app_album_service__WEBPACK_IMPORTED_MODULE_1__["default"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"])); };
-AlbumList.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AlbumList, selectors: [["album-list"]], inputs: { pageSize: ["pagesize", "pageSize"] }, decls: 10, vars: 2, consts: [[1, "col-xs-8"], ["mat-raised-button", "", "href", "/Album/Create", 1, "col-xs-4"], ["id", "album-list", 1, "col-xs-12", "album-list"], ["matSort", "", "class", "col-xs-12", 3, "matSortChange", 4, "ngIf", "ngIfElse"], ["loading", ""], ["matSort", "", 1, "col-xs-12", 3, "matSortChange"], ["mat-sort-header", "name"], ["mat-sort-header", "type"], ["mat-sort-header", "artist"], ["mat-sort-header", "stock"], [4, "ngFor", "ngForOf"], ["colspan", "6"], [3, "length", "pageSize", "pageSizeOptions", "page"], [1, "d-none", "d-sm-block"], [1, "d-block", "d-sm-none", 3, "href"], ["mat-raised-button", "", 1, "d-none", "d-sm-block", 3, "href"], ["mat-raised-button", "", "color", "warn", 1, "d-none", "d-md-block", 3, "click"]], template: function AlbumList_Template(rf, ctx) { if (rf & 1) {
+AlbumList.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AlbumList, selectors: [["album-list"]], inputs: { pageSize: ["pagesize", "pageSize"] }, decls: 10, vars: 2, consts: [[1, "col-xs-8"], ["mat-raised-button", "", "href", "/Album/Create", 1, "col-xs-4"], ["id", "album-list", 1, "col-xs-12", "album-list"], ["matSort", "", "class", "col-xs-12", 3, "matSortChange", 4, "ngIf", "ngIfElse"], ["loading", ""], ["matSort", "", 1, "col-xs-12", 3, "matSortChange"], ["mat-sort-header", "name"], ["mat-sort-header", "type"], ["mat-sort-header", "artist"], ["mat-sort-header", "stock"], [4, "ngFor", "ngForOf"], ["colspan", "6"], [3, "length", "pageSize", "pageSizeOptions", "page"], [1, "col-xs-3"], [1, "d-none", "d-sm-block"], [1, "d-block", "d-sm-none", 3, "href"], ["mat-raised-button", "", 1, "d-none", "d-sm-block", 3, "href"], ["mat-raised-button", "", "color", "warn", 1, "d-none", "d-md-block", 3, "click"]], template: function AlbumList_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h1");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "span", 0);

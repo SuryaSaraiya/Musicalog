@@ -13,12 +13,12 @@
       </tr>
 
       <tr *ngFor="let album of sortedAlbums">
-        <td>
+        <td class="col-xs-3">
           <span class="d-none d-sm-block">{{album.Name}}</span>
           <a class="d-block d-sm-none" href="/Album/Detail/{{album.Id}}">{{album.Name}}</a>
         </td>
         <td> {{album.Type}} </td>
-        <td> {{album.Artists[0].Name}} </td>
+        <td class="col-xs-3"> {{album.Artists[0].Name}} </td>
         <td> {{album.Inventory.Stock}}</td>
         <td> <a class="d-none d-sm-block" mat-raised-button href="/Album/Detail/{{album.Id}}">Edit</a> </td>
         <td> <button class="d-none d-md-block" mat-raised-button color="warn" (click)="deleteAlbum(album)">Delete</button> </td>
