@@ -2,6 +2,7 @@
 Musicalog MVC Webapi Angular App
 
 .Net Framework 4.8 is used for both WebApi and the MCV app
+App's frontend if build using Angular 11, enhanced by Angular Material and Bootstrap.
 
 # Gaps & Future enhancements
 
