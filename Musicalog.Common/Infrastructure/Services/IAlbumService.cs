@@ -7,7 +7,7 @@ namespace Musicalog.Common.Infrastructure.Services
     {
         Task<AlbumModel> GetAlbum(int id);
         Task<AlbumListResult> GetAllAlbums(int page_number, int page_size);
-        Task<int> UpdateAlbum(AlbumModel album);
+        Task<bool> UpdateAlbum(AlbumModel album);
         Task<AlbumModel> CreateAlbum(AlbumModel album);
         Task<bool> DeleteAlbum(int id);
     }

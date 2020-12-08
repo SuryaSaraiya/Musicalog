@@ -43,7 +43,7 @@ namespace Musicalog.Common.Infrastructure.Services
 
             return albumListResult;
         }
-        public async Task<int> UpdateAlbum(AlbumModel album)
+        public async Task<bool> UpdateAlbum(AlbumModel album)
         {
             var command = new UpdateAlbumCommand
             {
@@ -55,7 +55,7 @@ namespace Musicalog.Common.Infrastructure.Services
 
             var result = await _mediator.Send(command);
 
-            return result;
+            return result == album.Id ? true : false;
         }
         public async Task<AlbumModel> CreateAlbum(AlbumModel album)
         {

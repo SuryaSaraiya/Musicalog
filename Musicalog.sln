@@ -9,6 +9,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Musicalog.Common", "Musical
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Musicalog.Web", "Musicalog.Web\Musicalog.Web.csproj", "{C74C3465-634C-4ADD-9C63-17BF9731E9F6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{D4DC8493-4D3E-4660-943F-9E44A39AFEFC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{ABE8D83A-EB54-4C4A-B694-31D313B99F4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{3EE00E64-C0E4-42BE-A413-D26DF6BE5E96}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D95C5489-56EA-41F5-A872-F724D002050F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Musicalog.Api.UnitTests", "Musicalog.Api.UnitTests\Musicalog.Api.UnitTests.csproj", "{09D8D7DE-A899-48F3-AAC3-097AC5C19491}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +37,19 @@ Global
 		{C74C3465-634C-4ADD-9C63-17BF9731E9F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C74C3465-634C-4ADD-9C63-17BF9731E9F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C74C3465-634C-4ADD-9C63-17BF9731E9F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09D8D7DE-A899-48F3-AAC3-097AC5C19491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09D8D7DE-A899-48F3-AAC3-097AC5C19491}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09D8D7DE-A899-48F3-AAC3-097AC5C19491}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09D8D7DE-A899-48F3-AAC3-097AC5C19491}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{620FAF5C-38C5-40CF-93B5-9BDCE370892D} = {ABE8D83A-EB54-4C4A-B694-31D313B99F4B}
+		{6D058BBD-963B-4E94-A61C-D1CC5D72610F} = {3EE00E64-C0E4-42BE-A413-D26DF6BE5E96}
+		{C74C3465-634C-4ADD-9C63-17BF9731E9F6} = {D4DC8493-4D3E-4660-943F-9E44A39AFEFC}
+		{09D8D7DE-A899-48F3-AAC3-097AC5C19491} = {D95C5489-56EA-41F5-A872-F724D002050F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F70388FD-EA17-45E8-B600-9F5EE43D37C6}

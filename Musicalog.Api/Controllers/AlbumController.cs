@@ -36,18 +36,18 @@ namespace Musicalog.Api.Controllers
 
         [HttpPost]
         [Route("{id}")]
-        public async Task<IHttpActionResult> UpdateAlbumById(AlbumModel album)
+        public async Task<IHttpActionResult> UpdateAlbum(AlbumModel album)
         {
             if (album.Id <= 0)
             {
                 return BadRequest();
             }
 
-            await _albumService.UpdateAlbum(album);
+            var result = await _albumService.UpdateAlbum(album);
 
-            if (album == null)
+            if (!result)
             {
-                return NotFound();
+                return InternalServerError(new System.Exception("An unknown error occured while updating album"));
             }
 
             return Ok(album);
@@ -56,7 +56,17 @@ namespace Musicalog.Api.Controllers
         [HttpPut]
         public async Task<IHttpActionResult> CreateAlbum(AlbumModel album)
         {
+            if (album == null || album.Id > 0)
+            {
+                return BadRequest();
+            }
+
             album = await _albumService.CreateAlbum(album);
+
+            if (album == null || album.Id <= 0)
+            {
+                return InternalServerError(new System.Exception("An unknown error occured while creating album"));
+            }
 
             return Ok(album);
         }
@@ -81,7 +91,7 @@ namespace Musicalog.Api.Controllers
         {
             var result = await _albumService.GetAllAlbums(page, pageSize);
 
-            if (result == null && result.Albums != null)
+            if (result == null || result.Albums == null)
             {
                 return NotFound();
             }
