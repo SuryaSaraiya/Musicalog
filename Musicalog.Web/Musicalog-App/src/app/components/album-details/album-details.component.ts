@@ -7,6 +7,8 @@ import AlbumModel from '../../shared/models/AlbumModel';
 import ArtistModel from '../../shared/models/ArtistModel';
 import InventoryModel from '../../shared/models/InventoryModel';
 import AlbumService from '../../shared/services/app.album.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialog } from '../confirm-dialog/confirm-dialog.component';
 
 enum Mode {
   View,
@@ -32,7 +34,8 @@ export class AlbumDetail implements OnInit {
   constructor(private albumService: AlbumService,
     private elementRef: ElementRef,
     private formBuilder: FormBuilder,
-    private location: Location) { }
+    private location: Location,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     if (this.albumId > 0) {
@@ -104,6 +107,20 @@ export class AlbumDetail implements OnInit {
       console.log(data);
       this.location.replaceState(`/Album/Detail/${data.Id}`);
       this.mode = Mode.View;
+    });
+  }
+
+  deleteAlbum(album: AlbumModel) {
+    let diagRef = this.dialog.open(ConfirmDialog);
+
+    diagRef.afterClosed().subscribe(response => {
+      if (response) {
+        this.albumService.deleteAlbum(album.Id).subscribe(data => {
+          if (data) {
+            window.location.href = '/Album/List';
+          }
+        });
+      }
     });
   }
 }

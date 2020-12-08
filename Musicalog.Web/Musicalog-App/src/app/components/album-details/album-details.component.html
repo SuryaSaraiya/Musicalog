@@ -13,10 +13,11 @@
 
     <div class="action-bar">
       <button mat-raised-button color="primary" *ngIf="!editing()" (click)="editAlbum()">Edit</button>
+      <button mat-raised-button color="warn" (click)="deleteAlbum(album)">Delete</button>
     </div>
   </section>
 
-  <section id="album-detail-edit" class="album" *ngIf="editing()">
+  <section id="album-detail-edit" class="album col-xs-12 col-md-8 col-lg-6" *ngIf="editing()">
     <form [formGroup]="albumForm" (ngSubmit)="onAlbumFormSubmit(albumForm.value)">
       <mat-form-field>
         <mat-label>Album</mat-label>

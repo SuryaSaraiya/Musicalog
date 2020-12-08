@@ -1,9 +1,9 @@
 <div>
-  <h1>Home <a mat-raised-button href="/Album/Create">Create Album</a></h1>
+  <h1><span class="col-xs-8">Home</span> <a class="col-xs-4" mat-raised-button href="/Album/Create">Create Album</a></h1>
 
-  <section id="album-list" *ngIf="albums else loading">
+  <section id="album-list" class="col-xs-12 album-list">
 
-    <table matSort (matSortChange)="sortAlbums($event)">
+    <table matSort *ngIf="albums else loading" (matSortChange)="sortAlbums($event)" class="col-xs-12">
       <tr>
         <th mat-sort-header="name">Album</th>
         <th mat-sort-header="type">Type</th>
@@ -13,14 +13,15 @@
       </tr>
 
       <tr *ngFor="let album of sortedAlbums">
-        <td> {{album.Name}} </td>
+        <td>
+          <span class="d-none d-sm-block">{{album.Name}}</span>
+          <a class="d-block d-sm-none" href="/Album/Detail/{{album.Id}}">{{album.Name}}</a>
+        </td>
         <td> {{album.Type}} </td>
         <td> {{album.Artists[0].Name}} </td>
         <td> {{album.Inventory.Stock}}</td>
-        <td> <a mat-raised-button href="/Album/Detail/{{album.Id}}">Edit</a> </td>
-        <td>
-          <button mat-raised-button color="warn" (click)="deleteAlbum(album)">Delete</button>
-        </td>
+        <td> <a class="d-none d-sm-block" mat-raised-button href="/Album/Detail/{{album.Id}}">Edit</a> </td>
+        <td> <button class="d-none d-md-block" mat-raised-button color="warn" (click)="deleteAlbum(album)">Delete</button> </td>
       </tr>
       <tr>
         <td colspan="6">
@@ -33,8 +34,8 @@
       </tr>
     </table>
 
+    <ng-template #loading>
+      <mat-spinner></mat-spinner>
+    </ng-template>
   </section>
-  <ng-template #loading>
-    <mat-spinner></mat-spinner>
-  </ng-template>
 </div>

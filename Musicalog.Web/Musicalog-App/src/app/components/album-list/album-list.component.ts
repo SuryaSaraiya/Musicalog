@@ -4,6 +4,7 @@ import AlbumService from '../../shared/services/app.album.service';
 import { Sort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialog } from '../confirm-dialog/confirm-dialog.component';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'album-list',
@@ -15,6 +16,7 @@ export class AlbumList implements OnInit {
   albums: Array<AlbumModel>;
   totalAlbums: number;
   sortedAlbums: AlbumModel[];
+  pageEvent: PageEvent;
 
   @Input("pagesize") pageSize: number;
   page: number = 0;
@@ -53,7 +55,7 @@ export class AlbumList implements OnInit {
     console.log(event);
     this.pageSize = event.pageSize;
     this.page = event.pageIndex;
-    this.loadAlbums(event.pageSize, event.pageIndex);
+    this.loadAlbums(event.pageSize, event.pageIndex);    
   }
 
   sortAlbums(sort: Sort) {
