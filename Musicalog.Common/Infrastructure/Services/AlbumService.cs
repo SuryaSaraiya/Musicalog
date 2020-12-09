@@ -20,12 +20,22 @@ namespace Musicalog.Common.Infrastructure.Services
 
         public async Task<AlbumListResult> GetAllAlbums(int page_number, int page_size, string orderBy, string sortDirection)
         {
+            if (page_number <= 0)
+            {
+                page_number = 1;
+            }
+
+            if (page_size <= 0)
+            {
+                page_size = 10;
+            }
+
             var query = new AlbumListQuery
             {
                 Skip = (page_number - 1) * page_size,
                 Take = page_size,
-                SortBy = orderBy,
-                SortDirection = sortDirection
+                SortBy = orderBy ?? "",
+                SortDirection = sortDirection ?? "asc"
             };
 
             var albumListResult = await _mediator.Send(query);

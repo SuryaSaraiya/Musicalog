@@ -22,6 +22,12 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
 
         public async Task<AlbumModel> Handle(AlbumQuery request, CancellationToken cancellationToken)
         {
+            if (request.Id <= 0)
+            {
+                _logger.Information("Requesting album details with invalid request {@request}, returning null.", request);
+                return null;
+            }
+
             try
             {
                 _logger.Information("Requesting album details for {@request}", request);
@@ -33,7 +39,7 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
             catch (Exception ex)
             {
                 _logger.Error(ex, "Errored getting album {id} with message {message}", request.Id, ex.Message);
-                return await Task.FromResult<AlbumModel>(null);
+                return null;
             }
         }
 

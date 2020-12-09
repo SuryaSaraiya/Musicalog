@@ -21,7 +21,7 @@ namespace Musicalog.Common.UnitTests.Infrastructure.Services
         }
 
         [Fact]
-        public async void When_GetAlbums_Has_Valid_Parameters_Then_Returns_Valid_List()
+        public async void GetAllAlbums_Returns_Valid_List_Of_Albums()
         {
             var pageNumber = 1;
             var pageSize = 10;
@@ -39,6 +39,40 @@ namespace Musicalog.Common.UnitTests.Infrastructure.Services
 
             result.ShouldNotBeNull();
             result.ShouldBeEquivalentTo(albumListResult);
+            For<IMediator>().Verify();
+        }
+
+        [Fact]
+        public async void GetAlbum_ById_Non_0_Returns_Valid_List_Of_Albums()
+        {
+            var albumId = 1;
+
+            var fix = new Fixture();
+            var album = fix.Create<AlbumModel>();
+
+            For<IMediator>()
+                .Setup(m => m.Send(It.IsAny<AlbumQuery>(), default(CancellationToken)))
+                .Returns(Task.FromResult(album)).Verifiable();
+
+            var result = await ObjectUnderTest.GetAlbum(albumId);
+
+            result.ShouldNotBeNull();
+            result.ShouldBeEquivalentTo(album);
+            For<IMediator>().Verify();
+        }
+
+        [Fact]
+        public async void GetAlbum_ById_0_Returns_Null()
+        {
+            var albumId = 0;
+
+            For<IMediator>()
+                .Setup(m => m.Send(It.IsAny<AlbumQuery>(), default(CancellationToken)))
+                .Returns(Task.FromResult<AlbumModel>(null)).Verifiable();
+
+            var result = await ObjectUnderTest.GetAlbum(albumId);
+
+            result.ShouldBeNull();
             For<IMediator>().Verify();
         }
     }
