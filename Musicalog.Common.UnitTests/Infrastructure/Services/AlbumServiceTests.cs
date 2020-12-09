@@ -75,5 +75,77 @@ namespace Musicalog.Common.UnitTests.Infrastructure.Services
             result.ShouldBeNull();
             For<IMediator>().Verify();
         }
+
+        [Fact]
+        public async void UpdateAlbum_Valid_Request_Returns_True()
+        {
+            var fix = new Fixture();
+            var validAlbum = fix.Create<AlbumModel>();
+
+            For<IMediator>()
+                .Setup(m => m.Send(It.IsAny<UpdateAlbumCommand>(), default(CancellationToken)))
+                .Returns(Task.FromResult(true)).Verifiable();
+
+            var result = await ObjectUnderTest.UpdateAlbum(validAlbum);
+
+            result.ShouldBeTrue();
+            For<IMediator>().Verify();
+        }
+
+        [Fact]
+        public async void UpdateAlbum_InValid_Request_Returns_False()
+        {
+            var fix = new Fixture();
+            var invalidAlbum = fix.Create<AlbumModel>();
+
+            For<IMediator>()
+                .Setup(m => m.Send(It.IsAny<UpdateAlbumCommand>(), default(CancellationToken)))
+                .Returns(Task.FromResult(false)).Verifiable();
+
+            var result = await ObjectUnderTest.UpdateAlbum(invalidAlbum);
+
+            result.ShouldBeFalse();
+            For<IMediator>().Verify();
+        }
+
+        [Fact]
+        public async void CreateAlbum_Valid_Request_Returns_True()
+        {
+            var newAlbumId = 12;
+            var zero = 0;
+            var fix = new Fixture();
+            var validAlbum = fix.Create<AlbumModel>();
+            validAlbum.Id = zero;
+
+            For<IMediator>()
+                .Setup(m => m.Send(It.IsAny<CreateAlbumCommand>(), default(CancellationToken)))
+                .Returns(Task.FromResult(newAlbumId)).Verifiable();
+
+            var result = await ObjectUnderTest.CreateAlbum(validAlbum);
+
+            result.ShouldNotBeNull();
+            result.Id.ShouldNotBe(zero);
+            result.Id.ShouldBe(newAlbumId);
+            For<IMediator>().Verify();
+        }
+
+        [Fact]
+        public async void CreateAlbum_InValid_Request_Returns_False()
+        {
+            var zero = 0;
+            var fix = new Fixture();
+            var invalidAlbum = fix.Create<AlbumModel>();
+            invalidAlbum.Id = zero;
+
+            For<IMediator>()
+                .Setup(m => m.Send(It.IsAny<CreateAlbumCommand>(), default(CancellationToken)))
+                .Returns(Task.FromResult(zero)).Verifiable();
+
+            var result = await ObjectUnderTest.CreateAlbum(invalidAlbum);
+
+            result.ShouldNotBeNull();
+            result.Id.ShouldBe(zero);
+            For<IMediator>().Verify();
+        }
     }
 }

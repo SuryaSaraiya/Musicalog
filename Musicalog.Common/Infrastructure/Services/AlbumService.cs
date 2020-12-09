@@ -65,7 +65,7 @@ namespace Musicalog.Common.Infrastructure.Services
 
             var result = await _mediator.Send(command);
 
-            return result == album.Id ? true : false;
+            return result;
         }
         public async Task<AlbumModel> CreateAlbum(AlbumModel album)
         {

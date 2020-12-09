@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
 {
     [ExcludeFromCodeCoverage]
-    public class UpdateAlbumCommand : IRequest<int>
+    public class UpdateAlbumCommand : IRequest<bool>
     {
         public int AlbumId { get; set; }
         public string AlbumName { get; set; }

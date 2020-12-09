@@ -25,6 +25,15 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
         public async Task<int> Handle(CreateAlbumCommand request, CancellationToken cancellationToken)
         {
 
+            if (string.IsNullOrEmpty(request.AlbumName)
+                || request.Stock < 0
+                || request.Type <= 0
+                || string.IsNullOrEmpty(request.ArtistName))
+            {
+                _logger.Information("Requesting to create album with invalid request {@request}, returning 0.", request);
+                return 0;
+            }
+
             var albumId = 0;
             try
             {

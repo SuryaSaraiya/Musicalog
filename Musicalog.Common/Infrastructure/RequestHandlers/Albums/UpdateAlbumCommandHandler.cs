@@ -8,7 +8,7 @@ using Serilog;
 
 namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
 {
-    public class UpdateAlbumCommandHandler : IRequestHandler<UpdateAlbumCommand, int>
+    public class UpdateAlbumCommandHandler : IRequestHandler<UpdateAlbumCommand, bool>
     {
 
         private readonly ILogger _logger;
@@ -18,8 +18,18 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
             _logger = logger;
         }
 
-        public async Task<int> Handle(UpdateAlbumCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(UpdateAlbumCommand request, CancellationToken cancellationToken)
         {
+            if (request.AlbumId <= 0
+                || string.IsNullOrEmpty(request.AlbumName)
+                || request.Stock < 0
+                || request.Type <=0 
+                || request.Artist == null || string.IsNullOrEmpty(request.Artist.Name))
+            {
+                _logger.Information("Requesting to update album with invalid request {@request}, returning false.", request);
+                return false;
+            }
+
             try
             {
                 _logger.Information("Request to update album {@Request}", request);
@@ -63,12 +73,12 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
                     }
                 }
                 _logger.Information("Album was updated succesfully");
-                return request.AlbumId;
+                return true;
             }
             catch (Exception ex)
             {
                 _logger.Error(ex, "Errored while updating album with message {message}", ex.Message);
-                return 0;
+                return false;
             }
         }
     }
