@@ -1,7 +1,7 @@
 ﻿using Moq;
 using Moq.AutoMock;
 
-namespace Musicalog.Api.UnitTests
+namespace Musicalog.Common.UnitTests
 {
 
     public abstract class TestBase<T> where T : class

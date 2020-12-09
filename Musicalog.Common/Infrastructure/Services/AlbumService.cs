@@ -26,7 +26,6 @@ namespace Musicalog.Common.Infrastructure.Services
                 Take = page_size,
                 SortBy = orderBy,
                 SortDirection = sortDirection
-
             };
 
             var albumListResult = await _mediator.Send(query);

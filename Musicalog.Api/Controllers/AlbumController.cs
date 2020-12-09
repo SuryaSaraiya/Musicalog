@@ -87,8 +87,18 @@ namespace Musicalog.Api.Controllers
 
         [HttpGet]
         [Route("list")]
-        public async Task<IHttpActionResult> GetAllAlbums(int page = 1, int pageSize = 10, string sortBy = "", string sortDirection = "asc")
+        public async Task<IHttpActionResult> GetAllAlbums(int page, int pageSize, string sortBy = "", string sortDirection = "asc")
         {
+            if (page == 0)
+            {
+                page = 1;
+            }
+
+            if (pageSize == 0)
+            {
+                pageSize = 10;
+            }
+
             var result = await _albumService.GetAllAlbums(page, pageSize, sortBy ?? "", sortDirection ?? "asc");
 
             if (result == null || result.Albums == null)
