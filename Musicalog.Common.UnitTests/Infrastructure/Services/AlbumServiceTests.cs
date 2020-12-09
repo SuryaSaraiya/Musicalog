@@ -43,7 +43,7 @@ namespace Musicalog.Common.UnitTests.Infrastructure.Services
         }
 
         [Fact]
-        public async void GetAlbum_ById_Non_0_Returns_Valid_List_Of_Albums()
+        public async void GetAlbum_ById_Non_0_Returns_Valid_Album()
         {
             var albumId = 1;
 
@@ -145,6 +145,36 @@ namespace Musicalog.Common.UnitTests.Infrastructure.Services
 
             result.ShouldNotBeNull();
             result.Id.ShouldBe(zero);
+            For<IMediator>().Verify();
+        }
+
+        [Fact]
+        public async void DeleteAlbum_ById_Non_0_Returns_True()
+        {
+            var albumId = 1;
+
+            For<IMediator>()
+                .Setup(m => m.Send(It.IsAny<DeleteAlbumCommand>(), default(CancellationToken)))
+                .Returns(Task.FromResult(true)).Verifiable();
+
+            var result = await ObjectUnderTest.DeleteAlbum(albumId);
+
+            result.ShouldBeTrue();
+            For<IMediator>().Verify();
+        }
+
+        [Fact]
+        public async void DeleteAlbum_ById_0_Returns_False()
+        {
+            var albumId = 0;
+
+            For<IMediator>()
+                .Setup(m => m.Send(It.IsAny<DeleteAlbumCommand>(), default(CancellationToken)))
+                .Returns(Task.FromResult(false)).Verifiable();
+
+            var result = await ObjectUnderTest.DeleteAlbum(albumId);
+
+            result.ShouldBeFalse();
             For<IMediator>().Verify();
         }
     }

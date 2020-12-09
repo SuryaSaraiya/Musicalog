@@ -20,6 +20,12 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
 
         public async Task<bool> Handle(DeleteAlbumCommand request, CancellationToken cancellationToken)
         {
+            if (request.AlbumId <= 0)
+            {
+                _logger.Information("Requesting to delete album with invalid request {@request}, returning false.", request);
+                return false;
+            }
+
             try
             {
                 _logger.Information("Request to delete album {@Request}", request);
