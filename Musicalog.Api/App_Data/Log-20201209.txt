@@ -343,3 +343,63 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 2020-12-09 08:12:04.676 +00:00 [Information] Returning the requested page of albums from a total of 13 albums
 2020-12-09 08:12:05.500 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
 2020-12-09 08:12:05.597 +00:00 [Information] Returning the requested page of albums from a total of 13 albums
+2020-12-09 08:43:34.952 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-09 08:43:36.307 +00:00 [Information] Returning the requested page of albums from a total of 13 albums
+2020-12-09 08:43:40.126 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-09 08:43:40.220 +00:00 [Information] Returning the requested page of albums from a total of 13 albums
+2020-12-09 08:43:42.069 +00:00 [Information] Requesting album details for AlbumQuery { Id: 32 }
+2020-12-09 08:43:42.212 +00:00 [Information] Returning requested album info as AlbumModel { Id: 32, Name: "Blue", SKU: "08D3-NU45", Artists: [ArtistModel { Id: 13, Name: "Various" }], Type: Vinyl, Inventory: InventoryModel { Id: 31, SKU: "08D3-NU45", StockPurchased: 0, SoldSoFar: 0, Stock: 320 } }
+2020-12-09 08:43:47.531 +00:00 [Information] Requesting to update album with invalid request UpdateAlbumCommand { AlbumId: 32, AlbumName: "Blue", Artist: null, Stock: 450, Type: 1 }, returning false.
+2020-12-09 08:43:51.382 +00:00 [Information] Requesting to update album with invalid request UpdateAlbumCommand { AlbumId: 32, AlbumName: "Blue", Artist: null, Stock: 450, Type: 1 }, returning false.
+2020-12-09 08:46:02.464 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-09 08:46:03.554 +00:00 [Information] Returning the requested page of albums from a total of 13 albums
+2020-12-09 08:46:07.183 +00:00 [Information] Requesting album details for AlbumQuery { Id: 32 }
+2020-12-09 08:46:07.271 +00:00 [Information] Returning requested album info as AlbumModel { Id: 32, Name: "Blue", SKU: "08D3-NU45", Artists: [ArtistModel { Id: 13, Name: "Various" }], Type: Vinyl, Inventory: InventoryModel { Id: 31, SKU: "08D3-NU45", StockPurchased: 0, SoldSoFar: 0, Stock: 320 } }
+2020-12-09 08:46:15.619 +00:00 [Information] Request to update album UpdateAlbumCommand { AlbumId: 32, AlbumName: "Blue", Artist: ArtistModel { Id: 0, Name: "Various" }, Stock: 450, Type: 1 }
+2020-12-09 08:46:15.772 +00:00 [Information] Album was updated succesfully
+2020-12-09 08:46:17.860 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-09 08:46:17.932 +00:00 [Information] Returning the requested page of albums from a total of 13 albums
+2020-12-09 08:46:24.533 +00:00 [Information] Requesting album details for AlbumQuery { Id: 20 }
+2020-12-09 08:46:24.581 +00:00 [Information] Returning requested album info as AlbumModel { Id: 20, Name: "Here I Am", SKU: "DIU4-P3EG", Artists: [ArtistModel { Id: 1, Name: "Brian Adams" }], Type: Vinyl, Inventory: InventoryModel { Id: 19, SKU: "DIU4-P3EG", StockPurchased: 0, SoldSoFar: 0, Stock: 200 } }
+2020-12-09 08:46:31.168 +00:00 [Information] Request to update album UpdateAlbumCommand { AlbumId: 20, AlbumName: "Here I Am", Artist: ArtistModel { Id: 0, Name: "Brian Adams" }, Stock: 750, Type: 1 }
+2020-12-09 08:46:31.312 +00:00 [Information] Album was updated succesfully
+2020-12-09 08:46:32.932 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-09 08:46:33.036 +00:00 [Information] Returning the requested page of albums from a total of 13 albums
+2020-12-09 08:47:04.404 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Pop Culture 2020", ArtistName: "Various", Stock: 1750, Type: 1 }
+2020-12-09 08:47:04.539 +00:00 [Information] Album was created with id 33
+2020-12-09 08:47:06.114 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-09 08:47:06.195 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-09 08:47:10.463 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-09 08:47:10.524 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-09 08:47:13.247 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-09 08:47:13.307 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-09 08:51:02.654 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-09 08:51:03.987 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-09 08:51:08.587 +00:00 [Information] Requesting album details for AlbumQuery { Id: 32 }
+2020-12-09 08:51:08.747 +00:00 [Information] Returning requested album info as AlbumModel { Id: 32, Name: "Blue", SKU: "08D3-NU45", Artists: [ArtistModel { Id: 13, Name: "Various" }], Type: Vinyl, Inventory: InventoryModel { Id: 31, SKU: "08D3-NU45", StockPurchased: 0, SoldSoFar: 0, Stock: 450 } }
+2020-12-09 08:51:15.584 +00:00 [Information] Request to update album UpdateAlbumCommand { AlbumId: 32, AlbumName: "Blue", Artist: ArtistModel { Id: 0, Name: "Brian Adams" }, Stock: 450, Type: 1 }
+2020-12-09 08:51:15.960 +00:00 [Information] Album was updated succesfully
+2020-12-09 08:51:18.000 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-09 08:51:18.224 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-09 08:51:21.447 +00:00 [Information] Requesting album details for AlbumQuery { Id: 32 }
+2020-12-09 08:51:21.514 +00:00 [Information] Returning requested album info as AlbumModel { Id: 32, Name: "Blue", SKU: "08D3-NU45", Artists: [ArtistModel { Id: 1, Name: "Brian Adams" }], Type: Vinyl, Inventory: InventoryModel { Id: 31, SKU: "08D3-NU45", StockPurchased: 0, SoldSoFar: 0, Stock: 450 } }
+2020-12-09 08:51:24.046 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-09 08:51:24.149 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-09 08:51:42.524 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "The Zoo", ArtistName: "Culture", Stock: 2100, Type: 1 }
+2020-12-09 08:51:42.633 +00:00 [Information] Album was created with id 34
+2020-12-09 08:51:44.104 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-09 08:51:44.180 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-09 08:51:51.924 +00:00 [Information] Requesting album details for AlbumQuery { Id: 32 }
+2020-12-09 08:51:51.962 +00:00 [Information] Returning requested album info as AlbumModel { Id: 32, Name: "Blue", SKU: "08D3-NU45", Artists: [ArtistModel { Id: 1, Name: "Brian Adams" }], Type: Vinyl, Inventory: InventoryModel { Id: 31, SKU: "08D3-NU45", StockPurchased: 0, SoldSoFar: 0, Stock: 450 } }
+2020-12-09 08:52:00.295 +00:00 [Information] Request to update album UpdateAlbumCommand { AlbumId: 32, AlbumName: "Blue", Artist: ArtistModel { Id: 0, Name: "Culture   " }, Stock: 450, Type: 1 }
+2020-12-09 08:52:00.434 +00:00 [Information] Album was updated succesfully
+2020-12-09 08:52:02.717 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-09 08:52:02.792 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-09 08:52:04.900 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "artist", SortDirection: "asc" }
+2020-12-09 08:52:04.962 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-09 08:52:05.969 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "artist", SortDirection: "desc" }
+2020-12-09 08:52:06.031 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-09 08:52:08.219 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "artist", SortDirection: "asc" }
+2020-12-09 08:52:08.280 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-09 08:52:09.792 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "artist", SortDirection: "asc" }
+2020-12-09 08:52:09.853 +00:00 [Information] Returning the requested page of albums from a total of 15 albums

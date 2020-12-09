@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Serilog;
+using Musicalog.Common.Data.Models;
 
 namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
 {
@@ -23,7 +24,7 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
             if (request.AlbumId <= 0
                 || string.IsNullOrEmpty(request.AlbumName)
                 || request.Stock < 0
-                || request.Type <=0 
+                || request.Type <= 0
                 || request.Artist == null || string.IsNullOrEmpty(request.Artist.Name))
             {
                 _logger.Information("Requesting to update album with invalid request {@request}, returning false.", request);
@@ -46,6 +47,35 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
 
                             album.AlbumName = request.AlbumName;
                             album.TypeId = typeid.Id;
+
+                            var artist = context.Artists.FirstOrDefault(a => a.Name.Replace(" ", "").Equals(request.Artist.Name.Replace(" ", ""), StringComparison.InvariantCultureIgnoreCase));
+
+                            if (artist == null)
+                            {
+                                artist = new Artist
+                                {
+                                    Name = request.Artist.Name
+                                };
+                                context.Artists.Add(artist);
+                                await context.SaveChangesAsync();
+                            }
+
+                            var albumArtist = context.AlbumArtists.FirstOrDefault(ar => ar.AlbumId == request.AlbumId);
+
+                            if (albumArtist == null)
+                            {
+                                var ar = new AlbumArtists
+                                {
+                                    AlbumId = album.Id,
+                                    ArtistId = artist.Id
+                                };
+                                context.AlbumArtists.Add(ar);
+                                await context.SaveChangesAsync();
+                            }
+                            else {
+                                albumArtist.ArtistId = artist.Id;
+                                await context.SaveChangesAsync();
+                            }
 
                             var inventory = context.Inventory.SingleOrDefault(i => i.SKU.Equals(album.SKU, StringComparison.InvariantCultureIgnoreCase));
 

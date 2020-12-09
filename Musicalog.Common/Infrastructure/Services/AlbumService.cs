@@ -60,7 +60,10 @@ namespace Musicalog.Common.Infrastructure.Services
                 AlbumId = album.Id,
                 AlbumName = album.Name,
                 Type = (int)album.Type,
-                Stock = album.Inventory.Stock
+                Stock = album.Inventory.Stock,
+                Artist = new ArtistModel { 
+                    Name = album.Artists.FirstOrDefault()?.Name
+                }
             };
 
             var result = await _mediator.Send(command);
