@@ -18,6 +18,21 @@ namespace Musicalog.Common.Infrastructure.Services
             _mediator = mediator;
         }
 
+        public async Task<AlbumListResult> GetAllAlbums(int page_number, int page_size, string orderBy, string sortDirection)
+        {
+            var query = new AlbumListQuery
+            {
+                Skip = (page_number - 1) * page_size,
+                Take = page_size,
+                SortBy = orderBy,
+                SortDirection = sortDirection
+
+            };
+
+            var albumListResult = await _mediator.Send(query);
+
+            return albumListResult;
+        }
         public async Task<AlbumModel> GetAlbum(int id)
         {
             var query = new AlbumQuery
@@ -28,20 +43,6 @@ namespace Musicalog.Common.Infrastructure.Services
             var album = await _mediator.Send(query);
 
             return album;
-        }
-        public async Task<AlbumListResult> GetAllAlbums(int page_number, int page_size)
-        {
-            var query = new AlbumListQuery
-            {
-                Id = 0,
-                Name = string.Empty,
-                Skip = (page_number - 1) * page_size,
-                Take = page_size
-            };
-
-            var albumListResult = await _mediator.Send(query);
-
-            return albumListResult;
         }
         public async Task<bool> UpdateAlbum(AlbumModel album)
         {

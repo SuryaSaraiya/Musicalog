@@ -10,7 +10,7 @@ namespace Musicalog.Common.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string SKU { get; set; }
+        public string SKU { get; set; }        
         public List<ArtistModel> Artists { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         public AlbumType Type { get; set; }

@@ -25,7 +25,7 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
             try
             {
                 _logger.Information("Requesting album list {@request}", request);
-                var albums = GetAllAlbums(request.Skip, request.Take, out int count);
+                var albums = GetAllAlbums(request.Skip, request.Take, request.SortBy, request.SortDirection, out int count);
 
                 _logger.Information("Returning the requested page of albums from a total of {Count} albums", count);
                 return await Task.FromResult(new AlbumListResult
@@ -41,7 +41,7 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
             }
         }
 
-        private List<AlbumModel> GetAllAlbums(int skip, int take, out int count)
+        private List<AlbumModel> GetAllAlbums(int skip, int take, string sortBy, string sortDirection, out int count)
         {
             using (var context = AlbumsDbContext.Create())
             {
@@ -50,41 +50,68 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
                               join art in context.Artists on albart.ArtistId equals art.Id
                               join inv in context.Inventory on alb.SKU equals inv.SKU
                               group art by new { alb, inv } into g
-                              select new
+                              select new AlbumModel
                               {
-                                  Album = g.Key.alb,
-                                  Artists = g.ToList(),
-                                  Inventory = g.Key.inv
+                                  Id = g.Key.alb.Id,
+                                  Name = g.Key.alb.AlbumName,
+                                  SKU = g.Key.alb.SKU,
+                                  Type = (Models.AlbumType)g.Key.alb.TypeId,
+                                  Inventory = new InventoryModel
+                                  {
+                                      Id = g.Key.inv.Id,
+                                      SKU = g.Key.inv.SKU,
+                                      StockPurchased = g.Key.inv.StockPurchased,
+                                      SoldSoFar = g.Key.inv.StockSoldSoFar,
+                                      Stock = g.Key.inv.Stock
+                                  },
+                                  Artists = g.Select(t => new ArtistModel
+                                  {
+                                      Id = t.Id,
+                                      Name = t.Name
+                                  }).ToList()
                               });
-
 
                 count = albums.Count();
 
-                return albums
-                    .OrderBy(a => a.Album.Id)
+                if (sortDirection.Equals("desc", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return albums
+                    .OrderByDescending(BuildOrderByFunction(sortBy))
                     .Skip(skip)
-                    .Take(take)
-                    .Select(a => new AlbumModel
-                    {
-                        Id = a.Album.Id,
-                        Name = a.Album.AlbumName,
-                        SKU = a.Album.SKU,
-                        Type = (Models.AlbumType)a.Album.TypeId,
-                        Inventory = new InventoryModel
-                        {
-                            Id = a.Inventory.Id,
-                            SKU = a.Inventory.SKU,
-                            StockPurchased = a.Inventory.StockPurchased,
-                            SoldSoFar = a.Inventory.StockSoldSoFar,
-                            Stock = a.Inventory.Stock
-                        },
-                        Artists = a.Artists.Select(t => new ArtistModel
-                        {
-                            Id = t.Id,
-                            Name = t.Name
-                        }).ToList()
-                    }).ToList();
+                    .Take(take).ToList();
+                }
+                else
+                {
+                    return albums
+                        .OrderBy(BuildOrderByFunction(sortBy))
+                        .Skip(skip)
+                        .Take(take).ToList();
+                }
             }
+        }
+
+        private Func<AlbumModel, Object> BuildOrderByFunction(string sortBy)
+        {
+            Func<AlbumModel, Object> orderByFunction = null;
+            switch (sortBy.ToLowerInvariant())
+            {
+                case "name":
+                    orderByFunction = item => item.Name;
+                    break;
+                case "stock":
+                    orderByFunction = item => item.Inventory.Stock;
+                    break;
+                case "artist":
+                    orderByFunction = item => item.Artists.FirstOrDefault() == null || !item.Artists.Any() ? "" : item.Artists.FirstOrDefault().Name;
+                    break;
+                case "type":
+                    orderByFunction = item => Enum.GetName(typeof(Models.AlbumType), item.Type);
+                    break;
+                default:
+                    orderByFunction = item => item.Name;
+                    break;
+            }
+            return orderByFunction;
         }
 
     }

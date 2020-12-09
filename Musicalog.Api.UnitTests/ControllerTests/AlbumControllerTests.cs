@@ -253,20 +253,20 @@ namespace Musicalog.Api.UnitTests
         [Fact]
         public async void Get_Albums_When_Found_Returns_Results()
         {
-            var fix = new Fixture();            
+            var fix = new Fixture();
             var expectedResponse = fix.Create<AlbumListResult>();
             expectedResponse.Total = 20;
             expectedResponse.Albums = fix.Create<List<AlbumModel>>();
-            
+
             For<IAlbumService>()
-                .Setup(s => s.GetAllAlbums(It.IsAny<int>(), It.IsAny<int>()))
+                .Setup(s => s.GetAllAlbums(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(Task.FromResult<AlbumListResult>(expectedResponse)).Verifiable();
 
-            IHttpActionResult result = await ObjectUnderTest.GetAllAlbums(1,10);
+            IHttpActionResult result = await ObjectUnderTest.GetAllAlbums(1, 10);
 
-            var response  = result as OkNegotiatedContentResult<AlbumListResult>;
+            var response = result as OkNegotiatedContentResult<AlbumListResult>;
 
-            result.ShouldNotBeNull();            
+            result.ShouldNotBeNull();
             result.ShouldBeOfType<OkNegotiatedContentResult<AlbumListResult>>();
             response.Content.Total.ShouldBe(expectedResponse.Total);
             response.Content.Albums.ShouldBeEquivalentTo(expectedResponse.Albums);
@@ -282,13 +282,13 @@ namespace Musicalog.Api.UnitTests
             expectedResponse.Albums = null;
 
             For<IAlbumService>()
-                .Setup(s => s.GetAllAlbums(It.IsAny<int>(), It.IsAny<int>()))
+                .Setup(s => s.GetAllAlbums(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(Task.FromResult<AlbumListResult>(expectedResponse)).Verifiable();
 
-            IHttpActionResult result = await ObjectUnderTest.GetAllAlbums(1, 10);            
+            IHttpActionResult result = await ObjectUnderTest.GetAllAlbums(1, 10);
 
             result.ShouldNotBeNull();
-            result.ShouldBeOfType<NotFoundResult>();            
+            result.ShouldBeOfType<NotFoundResult>();
             For<IAlbumService>().Verify();
         }
     }

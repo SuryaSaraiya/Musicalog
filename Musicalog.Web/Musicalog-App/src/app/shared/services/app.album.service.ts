@@ -12,8 +12,8 @@ export default class AlbumService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(pageSize: number, page: number): Observable<AlbumListResult> {
-    return this.http.get<AlbumListResult>(`${this.ALBUM_LIST_ENDPOINT}?pageSize=${pageSize}&page=${page}`);
+  getAll(pageSize: number, page: number, sortBy: string, sortDirection: string): Observable<AlbumListResult> {
+    return this.http.get<AlbumListResult>(`${this.ALBUM_LIST_ENDPOINT}?pageSize=${pageSize}&page=${page}&sortBy=${sortBy}&sortDirection=${sortDirection}`);
   }
 
   getById(id: number): Observable<AlbumModel> {
