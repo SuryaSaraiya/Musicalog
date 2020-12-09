@@ -9,7 +9,7 @@ App's frontend if build using Angular 11, enhanced by Angular Material and Boots
 
 ## Functional
 
-* Sorting is only client side. Further refactoring required for server side sorting.
+* ~~Sorting is only client side. Further refactoring required for server side sorting.~~
 * Search by name/artist etc.
 * Allow for multiple artists, artist lookup, add artists etc.
 * ~~Form Validations~~ 
