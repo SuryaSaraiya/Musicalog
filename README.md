@@ -17,7 +17,8 @@ App's frontend if build using Angular 11, enhanced by Angular Material and Boots
 ## Non Functional
 
 * ~~Codecoverage API Controllers~~
-* Codecoverage Common Services & Handlers
+* ~~Codecoverage Common Services~~
+* Codecoverage Common Handlers
 * Codecoverage Web Codecoverage
 * Codecoverage UI codecoverage
 * ~~Responsive/bootstraped UI~~ 
