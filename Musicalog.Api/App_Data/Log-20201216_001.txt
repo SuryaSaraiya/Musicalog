@@ -144,3 +144,17 @@ Error Number:5105,State:2,Class:16
 2020-12-16 13:07:03.647 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
 2020-12-16 13:07:04.222 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
 2020-12-16 13:07:04.276 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 13:09:33.723 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 13:09:34.791 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 13:09:39.682 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 13:09:39.747 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 13:09:42.670 +00:00 [Information] Requesting album details for AlbumQuery { Id: 4 }
+2020-12-16 13:09:42.753 +00:00 [Information] Returning requested album info as AlbumModel { Id: 4, Name: "Millennium", SKU: "FW7V-1YDD", Artists: [ArtistModel { Id: 4, Name: "Backstreet Boys" }], Type: CD, Inventory: InventoryModel { Id: 4, SKU: "FW7V-1YDD", StockPurchased: 0, SoldSoFar: 0, Stock: 5000 } }
+2020-12-16 13:09:51.160 +00:00 [Information] Request to update album UpdateAlbumCommand { AlbumId: 4, AlbumName: "Millennium", Artist: ArtistModel { Id: 0, Name: "Backstreet Boys" }, Stock: 18500, Type: 2 }
+2020-12-16 13:09:51.398 +00:00 [Information] Album was updated succesfully
+2020-12-16 13:09:52.874 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 13:09:52.946 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 13:09:53.809 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 13:09:53.866 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 13:09:54.450 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "desc" }
+2020-12-16 13:09:54.506 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
