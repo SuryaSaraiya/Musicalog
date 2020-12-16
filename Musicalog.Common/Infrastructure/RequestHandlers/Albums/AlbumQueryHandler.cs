@@ -69,8 +69,7 @@ namespace Musicalog.Common.Infrastructure.RequestHandlers.Albums
                     Inventory = new InventoryModel
                     {
                         Id = a.Inventory.Id,
-                        SKU = a.Inventory.SKU,
-                        StockPurchased = a.Inventory.StockPurchased,
+                        SKU = a.Inventory.SKU,                        
                         SoldSoFar = a.Inventory.StockSoldSoFar,
                         Stock = a.Inventory.Stock
                     },

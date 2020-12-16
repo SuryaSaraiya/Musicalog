@@ -1,0 +1,38 @@
+2020-12-10 16:45:29.147 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-10 16:45:33.120 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:45:55.238 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-10 16:45:55.454 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:45:57.905 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "desc" }
+2020-12-10 16:45:58.142 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:46:03.639 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "name", SortDirection: "desc" }
+2020-12-10 16:46:03.826 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:46:04.491 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 10, Take: 5, SortBy: "name", SortDirection: "desc" }
+2020-12-10 16:46:04.700 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:46:06.134 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "name", SortDirection: "desc" }
+2020-12-10 16:46:06.319 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:46:06.872 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "desc" }
+2020-12-10 16:46:07.040 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:46:08.998 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 25, SortBy: "name", SortDirection: "desc" }
+2020-12-10 16:46:09.193 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:46:16.932 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 10, SortBy: "name", SortDirection: "desc" }
+2020-12-10 16:46:17.228 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:46:19.384 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 10, Take: 10, SortBy: "name", SortDirection: "desc" }
+2020-12-10 16:46:19.573 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:46:21.047 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 10, SortBy: "name", SortDirection: "desc" }
+2020-12-10 16:46:21.174 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:46:26.438 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-10 16:46:26.608 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:46:31.074 +00:00 [Information] Requesting album details for AlbumQuery { Id: 25 }
+2020-12-10 16:46:31.311 +00:00 [Information] Returning requested album info as AlbumModel { Id: 25, Name: "500 Days Of Summer", SKU: "1R9I-EBSZ", Artists: [ArtistModel { Id: 14, Name: "Unknown" }], Type: CD, Inventory: InventoryModel { Id: 24, SKU: "1R9I-EBSZ", StockPurchased: 0, SoldSoFar: 0, Stock: 1500 } }
+2020-12-10 16:46:39.852 +00:00 [Information] Request to update album UpdateAlbumCommand { AlbumId: 25, AlbumName: "500 Days Of Summer", Artist: ArtistModel { Id: 0, Name: "Unknown" }, Stock: 1750, Type: 2 }
+2020-12-10 16:46:40.562 +00:00 [Information] Album was updated succesfully
+2020-12-10 16:46:44.318 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-10 16:46:44.547 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:46:49.415 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-10 16:46:49.591 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:46:51.465 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 10, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-10 16:46:51.653 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:46:53.532 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-10 16:46:53.816 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-10 16:46:54.276 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-10 16:46:54.496 +00:00 [Information] Returning the requested page of albums from a total of 15 albums

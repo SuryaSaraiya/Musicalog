@@ -16,10 +16,6 @@ namespace Musicalog.Common.Data.Models
         public string SKU { get; set; }
 
         [Required]
-        [Column("purchased")]
-        public int StockPurchased { get; set; }
-
-        [Required]
         [Column("sold")]
         public int StockSoldSoFar { get; set; }
 

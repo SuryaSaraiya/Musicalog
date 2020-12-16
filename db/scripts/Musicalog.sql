@@ -1,5 +1,16 @@
-use Musicalog
-go
+USE Musicalog
+GO
+
+
+IF OBJECT_ID('album_artists') IS NOT NULL
+BEGIN
+	DROP TABLE album_artists
+END
+
+IF OBJECT_ID('albums') IS NOT NULL
+BEGIN
+	DROP TABLE albums
+END
 
 IF OBJECT_ID('album_types') IS NOT NULL
 BEGIN

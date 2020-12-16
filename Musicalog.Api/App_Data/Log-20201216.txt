@@ -1,0 +1,364 @@
+2020-12-16 11:40:50.510 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:40:51.969 +00:00 [Error] Errored while getting list of albums "An error occurred while executing the command definition. See the inner exception for details."
+System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Invalid column name 'purchased'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at Musicalog.Common.Infrastructure.RequestHandlers.Albums.AlbumListQueryHandler.GetAllAlbums(Int32 skip, Int32 take, String sortBy, String sortDirection, Int32& count) in C:\Surya\Musicalog\src\Musicalog.Common\Infrastructure\RequestHandlers\Albums\AlbumListQueryHandler.cs:line 74
+   at Musicalog.Common.Infrastructure.RequestHandlers.Albums.AlbumListQueryHandler.<Handle>d__2.MoveNext() in C:\Surya\Musicalog\src\Musicalog.Common\Infrastructure\RequestHandlers\Albums\AlbumListQueryHandler.cs:line 28
+2020-12-16 11:45:50.731 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:45:50.835 +00:00 [Error] Errored while getting list of albums "An error occurred while executing the command definition. See the inner exception for details."
+System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Invalid column name 'purchased'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at Musicalog.Common.Infrastructure.RequestHandlers.Albums.AlbumListQueryHandler.GetAllAlbums(Int32 skip, Int32 take, String sortBy, String sortDirection, Int32& count) in C:\Surya\Musicalog\src\Musicalog.Common\Infrastructure\RequestHandlers\Albums\AlbumListQueryHandler.cs:line 74
+   at Musicalog.Common.Infrastructure.RequestHandlers.Albums.AlbumListQueryHandler.<Handle>d__2.MoveNext() in C:\Surya\Musicalog\src\Musicalog.Common\Infrastructure\RequestHandlers\Albums\AlbumListQueryHandler.cs:line 28
+2020-12-16 11:46:09.886 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:46:09.971 +00:00 [Error] Errored while getting list of albums "An error occurred while executing the command definition. See the inner exception for details."
+System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Invalid column name 'purchased'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at Musicalog.Common.Infrastructure.RequestHandlers.Albums.AlbumListQueryHandler.GetAllAlbums(Int32 skip, Int32 take, String sortBy, String sortDirection, Int32& count) in C:\Surya\Musicalog\src\Musicalog.Common\Infrastructure\RequestHandlers\Albums\AlbumListQueryHandler.cs:line 74
+   at Musicalog.Common.Infrastructure.RequestHandlers.Albums.AlbumListQueryHandler.<Handle>d__2.MoveNext() in C:\Surya\Musicalog\src\Musicalog.Common\Infrastructure\RequestHandlers\Albums\AlbumListQueryHandler.cs:line 28
+2020-12-16 11:46:31.656 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Harmony", ArtistName: "Brian Adams", Stock: 200, Type: 1 }
+2020-12-16 11:46:31.846 +00:00 [Error] Errored creating album with message "An error occurred while updating the entries. See the inner exception for details."
+System.Data.Entity.Infrastructure.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.Entity.Core.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Invalid column name 'purchased'.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__180_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.<ExecuteAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStoreAsync>d__39.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesInternalAsync>d__31.MoveNext()
+   --- End of inner exception stack trace ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Musicalog.Common.Infrastructure.RequestHandlers.Albums.CreateAlbumCommandHandler.<Handle>d__3.MoveNext() in C:\Surya\Musicalog\src\Musicalog.Common\Infrastructure\RequestHandlers\Albums\CreateAlbumCommandHandler.cs:line 86
+2020-12-16 11:47:29.111 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Harmony", ArtistName: "Brian Adams", Stock: 200, Type: 1 }
+2020-12-16 11:48:02.107 +00:00 [Error] Errored creating album with message "An error occurred while updating the entries. See the inner exception for details."
+System.Data.Entity.Infrastructure.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.Entity.Core.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Invalid column name 'purchased'.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__180_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.<ExecuteAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStoreAsync>d__39.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesInternalAsync>d__31.MoveNext()
+   --- End of inner exception stack trace ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Musicalog.Common.Infrastructure.RequestHandlers.Albums.CreateAlbumCommandHandler.<Handle>d__3.MoveNext() in C:\Surya\Musicalog\src\Musicalog.Common\Infrastructure\RequestHandlers\Albums\CreateAlbumCommandHandler.cs:line 86
+2020-12-16 11:49:38.335 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:49:39.444 +00:00 [Information] Returning the requested page of albums from a total of 2 albums
+2020-12-16 11:50:14.702 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Harmony", ArtistName: "Various", Stock: 200, Type: 1 }
+2020-12-16 11:50:14.846 +00:00 [Information] Album was created with id 5
+2020-12-16 11:50:17.718 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:50:17.790 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:50:21.090 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:50:21.142 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:52:06.534 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:52:07.628 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:52:11.634 +00:00 [Information] Request to delete album DeleteAlbumCommand { AlbumId: 2 }
+2020-12-16 11:52:11.879 +00:00 [Information] Album successfully deleted
+2020-12-16 11:52:11.895 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:52:11.949 +00:00 [Information] Returning the requested page of albums from a total of 2 albums
+2020-12-16 11:52:13.569 +00:00 [Information] Request to delete album DeleteAlbumCommand { AlbumId: 5 }
+2020-12-16 11:52:13.709 +00:00 [Information] Album successfully deleted
+2020-12-16 11:52:13.729 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:52:13.784 +00:00 [Information] Returning the requested page of albums from a total of 1 albums
+2020-12-16 11:52:15.538 +00:00 [Information] Request to delete album DeleteAlbumCommand { AlbumId: 1 }
+2020-12-16 11:52:15.659 +00:00 [Information] Album successfully deleted
+2020-12-16 11:52:15.673 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:52:15.736 +00:00 [Information] Returning the requested page of albums from a total of 0 albums
+2020-12-16 11:52:25.942 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Harmony", ArtistName: "Brian Adams", Stock: 230, Type: 1 }
+2020-12-16 11:52:26.044 +00:00 [Information] Album was created with id 6
+2020-12-16 11:52:27.454 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:52:27.516 +00:00 [Information] Returning the requested page of albums from a total of 1 albums
+2020-12-16 11:52:42.538 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Poster Boy", ArtistName: "Various", Stock: 2560, Type: 2 }
+2020-12-16 11:52:42.597 +00:00 [Information] Album was created with id 7
+2020-12-16 11:52:44.786 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:52:44.849 +00:00 [Information] Returning the requested page of albums from a total of 2 albums
+2020-12-16 11:52:48.830 +00:00 [Information] Requesting album details for AlbumQuery { Id: 6 }
+2020-12-16 11:52:48.909 +00:00 [Information] Returning requested album info as AlbumModel { Id: 6, Name: "Harmony", SKU: "OCO1-V1GP", Artists: [ArtistModel { Id: 1, Name: "Brian Adams" }], Type: Vinyl, Inventory: InventoryModel { Id: 4, SKU: "OCO1-V1GP", StockPurchased: 0, SoldSoFar: 0, Stock: 230 } }
+2020-12-16 11:52:54.357 +00:00 [Information] Request to update album UpdateAlbumCommand { AlbumId: 6, AlbumName: "Harmony", Artist: ArtistModel { Id: 0, Name: "Brian Adams" }, Stock: 1500, Type: 1 }
+2020-12-16 11:52:54.503 +00:00 [Information] Album was updated succesfully
+2020-12-16 11:52:55.746 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:52:55.810 +00:00 [Information] Returning the requested page of albums from a total of 2 albums
+2020-12-16 11:52:58.176 +00:00 [Information] Requesting album details for AlbumQuery { Id: 7 }
+2020-12-16 11:52:58.214 +00:00 [Information] Returning requested album info as AlbumModel { Id: 7, Name: "Poster Boy", SKU: "TZTH-DQSG", Artists: [ArtistModel { Id: 3, Name: "Various" }], Type: CD, Inventory: InventoryModel { Id: 5, SKU: "TZTH-DQSG", StockPurchased: 0, SoldSoFar: 0, Stock: 2560 } }
+2020-12-16 11:53:01.606 +00:00 [Information] Request to update album UpdateAlbumCommand { AlbumId: 7, AlbumName: "Poster Boy", Artist: ArtistModel { Id: 0, Name: "Various" }, Stock: 1200, Type: 2 }
+2020-12-16 11:53:01.731 +00:00 [Information] Album was updated succesfully
+2020-12-16 11:53:03.176 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:53:03.245 +00:00 [Information] Returning the requested page of albums from a total of 2 albums
+2020-12-16 11:53:16.368 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Ansi", ArtistName: "Alex", Stock: 750, Type: 1 }
+2020-12-16 11:53:16.435 +00:00 [Information] Album was created with id 8
+2020-12-16 11:53:17.887 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:53:17.960 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:53:18.962 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:53:19.014 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:53:19.696 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "desc" }
+2020-12-16 11:53:19.748 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:53:21.565 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:53:21.618 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:53:22.434 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "desc" }
+2020-12-16 11:53:22.485 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:53:23.881 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:53:23.932 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:53:28.490 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "desc" }
+2020-12-16 11:53:28.545 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:53:30.637 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:53:30.690 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:53:31.398 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "desc" }
+2020-12-16 11:53:31.451 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:53:32.953 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:53:33.008 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:53:41.734 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "desc" }
+2020-12-16 11:53:41.788 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:53:44.227 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:53:44.280 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:53:45.390 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "desc" }
+2020-12-16 11:53:45.442 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:53:47.339 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "artist", SortDirection: "asc" }
+2020-12-16 11:53:47.395 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:53:48.556 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "type", SortDirection: "asc" }
+2020-12-16 11:53:48.610 +00:00 [Information] Returning the requested page of albums from a total of 3 albums
+2020-12-16 11:54:09.090 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Tsunami", ArtistName: "Jack Ryan", Stock: 1650, Type: 2 }
+2020-12-16 11:54:09.153 +00:00 [Information] Album was created with id 9
+2020-12-16 11:54:10.823 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:54:10.957 +00:00 [Information] Returning the requested page of albums from a total of 4 albums
+2020-12-16 11:54:24.739 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "December Sun", ArtistName: "Unknown", Stock: 1200, Type: 1 }
+2020-12-16 11:54:24.807 +00:00 [Information] Album was created with id 10
+2020-12-16 11:54:26.109 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:54:26.193 +00:00 [Information] Returning the requested page of albums from a total of 5 albums
+2020-12-16 11:54:46.325 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Salaam India", ArtistName: "Indian", Stock: 1650, Type: 1 }
+2020-12-16 11:54:46.389 +00:00 [Information] Album was created with id 11
+2020-12-16 11:54:48.436 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:54:48.513 +00:00 [Information] Returning the requested page of albums from a total of 6 albums
+2020-12-16 11:54:49.914 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:54:49.969 +00:00 [Information] Returning the requested page of albums from a total of 6 albums
+2020-12-16 11:54:50.822 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "desc" }
+2020-12-16 11:54:50.876 +00:00 [Information] Returning the requested page of albums from a total of 6 albums
+2020-12-16 11:54:53.284 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "stock", SortDirection: "desc" }
+2020-12-16 11:54:53.337 +00:00 [Information] Returning the requested page of albums from a total of 6 albums
+2020-12-16 11:54:54.671 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "desc" }
+2020-12-16 11:54:54.732 +00:00 [Information] Returning the requested page of albums from a total of 6 albums
+2020-12-16 11:54:56.887 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:54:56.939 +00:00 [Information] Returning the requested page of albums from a total of 6 albums
+2020-12-16 11:54:58.460 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:54:58.514 +00:00 [Information] Returning the requested page of albums from a total of 6 albums
+2020-12-16 11:55:00.035 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:55:00.090 +00:00 [Information] Returning the requested page of albums from a total of 6 albums
+2020-12-16 11:55:26.389 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Intruder", ArtistName: "Safe Adam", Stock: 1700, Type: 1 }
+2020-12-16 11:55:26.456 +00:00 [Information] Album was created with id 12
+2020-12-16 11:55:27.769 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:55:27.850 +00:00 [Information] Returning the requested page of albums from a total of 7 albums
+2020-12-16 11:55:40.026 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Hello Wisconsin", ArtistName: "Various", Stock: 2000, Type: 1 }
+2020-12-16 11:55:40.088 +00:00 [Information] Album was created with id 13
+2020-12-16 11:55:41.338 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:55:41.409 +00:00 [Information] Returning the requested page of albums from a total of 8 albums
+2020-12-16 11:55:52.756 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Bread and Butter", ArtistName: "Various", Stock: 1230, Type: 2 }
+2020-12-16 11:55:52.816 +00:00 [Information] Album was created with id 14
+2020-12-16 11:55:54.147 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:55:54.219 +00:00 [Information] Returning the requested page of albums from a total of 9 albums
+2020-12-16 11:56:14.760 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Institutionalised", ArtistName: "The Lost One", Stock: 1500, Type: 1 }
+2020-12-16 11:56:14.824 +00:00 [Information] Album was created with id 15
+2020-12-16 11:56:16.044 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:56:16.117 +00:00 [Information] Returning the requested page of albums from a total of 10 albums
+2020-12-16 11:56:29.613 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "SuperNOVA", ArtistName: "Unknown", Stock: 1200, Type: 1 }
+2020-12-16 11:56:29.677 +00:00 [Information] Album was created with id 16
+2020-12-16 11:56:30.811 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:56:30.895 +00:00 [Information] Returning the requested page of albums from a total of 11 albums
+2020-12-16 11:56:49.082 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Carrolten", ArtistName: "Binni", Stock: 1450, Type: 1 }
+2020-12-16 11:56:49.149 +00:00 [Information] Album was created with id 17
+2020-12-16 11:56:50.277 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:56:50.347 +00:00 [Information] Returning the requested page of albums from a total of 12 albums
+2020-12-16 11:57:01.947 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Stuart Littel", ArtistName: "someone", Stock: 1200, Type: 1 }
+2020-12-16 11:57:02.013 +00:00 [Information] Album was created with id 18
+2020-12-16 11:57:03.330 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:57:03.415 +00:00 [Information] Returning the requested page of albums from a total of 13 albums
+2020-12-16 11:57:16.962 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Humming Bird", ArtistName: "The Bird", Stock: 120, Type: 1 }
+2020-12-16 11:57:17.027 +00:00 [Information] Album was created with id 19
+2020-12-16 11:57:18.445 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:57:18.521 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:20.581 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:57:20.636 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:21.217 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 10, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:57:21.272 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:22.021 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 10, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:57:22.076 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:24.558 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:57:24.613 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:25.759 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:57:25.815 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:27.348 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:57:27.424 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:27.943 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 10, Take: 5, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 11:57:28.007 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:30.934 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 10, Take: 5, SortBy: "stock", SortDirection: "desc" }
+2020-12-16 11:57:31.001 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:32.613 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "stock", SortDirection: "desc" }
+2020-12-16 11:57:32.678 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:33.598 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "stock", SortDirection: "desc" }
+2020-12-16 11:57:33.656 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:35.275 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:57:35.330 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:37.308 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:57:37.375 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:38.323 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 10, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:57:38.378 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:39.322 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:57:39.377 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:40.218 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:57:40.274 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:42.068 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "type", SortDirection: "asc" }
+2020-12-16 11:57:42.124 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:43.092 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "type", SortDirection: "asc" }
+2020-12-16 11:57:43.150 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:57:43.924 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "type", SortDirection: "asc" }
+2020-12-16 11:57:43.978 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
