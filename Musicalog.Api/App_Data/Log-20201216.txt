@@ -362,3 +362,48 @@ System.Data.Entity.Infrastructure.DbUpdateException: An error occurred while upd
 2020-12-16 11:57:43.150 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
 2020-12-16 11:57:43.924 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "type", SortDirection: "asc" }
 2020-12-16 11:57:43.978 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:59:30.930 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:59:31.727 +00:00 [Information] Returning the requested page of albums from a total of 14 albums
+2020-12-16 11:59:46.092 +00:00 [Information] Request for creating album CreateAlbumCommand { AlbumId: 0, AlbumName: "Silsila", ArtistName: "Indian", Stock: 2100, Type: 2 }
+2020-12-16 11:59:46.243 +00:00 [Information] Album was created with id 20
+2020-12-16 11:59:48.027 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:59:48.101 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 11:59:51.414 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:59:51.469 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 11:59:52.304 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 10, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:59:52.359 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 11:59:53.758 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 11:59:53.811 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 11:59:54.928 +00:00 [Information] Requesting album details for AlbumQuery { Id: 19 }
+2020-12-16 11:59:55.021 +00:00 [Information] Returning requested album info as AlbumModel { Id: 19, Name: "Humming Bird", SKU: "MCJK-9T7G", Artists: [ArtistModel { Id: 12, Name: "The Bird" }], Type: Vinyl, Inventory: InventoryModel { Id: 17, SKU: "MCJK-9T7G", StockPurchased: 0, SoldSoFar: 0, Stock: 120 } }
+2020-12-16 12:00:00.329 +00:00 [Information] Request to update album UpdateAlbumCommand { AlbumId: 19, AlbumName: "Humming Bird", Artist: ArtistModel { Id: 0, Name: "The Bird" }, Stock: 850, Type: 1 }
+2020-12-16 12:00:00.507 +00:00 [Information] Album was updated succesfully
+2020-12-16 12:00:02.203 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 12:00:02.273 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 12:00:04.905 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 12:00:04.967 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 12:00:05.533 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 10, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 12:00:05.587 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 12:00:07.694 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 5, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 12:00:07.747 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 12:00:08.206 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 12:00:08.258 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 12:00:10.350 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }
+2020-12-16 12:00:10.401 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 12:00:11.174 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "desc" }
+2020-12-16 12:00:11.226 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 12:00:14.472 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "artist", SortDirection: "asc" }
+2020-12-16 12:00:14.526 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 12:00:18.498 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 25, SortBy: "artist", SortDirection: "asc" }
+2020-12-16 12:00:18.564 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 12:00:22.004 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 25, SortBy: "artist", SortDirection: "desc" }
+2020-12-16 12:00:22.055 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 12:00:23.725 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 25, SortBy: "artist", SortDirection: "asc" }
+2020-12-16 12:00:23.779 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 12:00:26.429 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 25, SortBy: "stock", SortDirection: "asc" }
+2020-12-16 12:00:26.501 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 12:00:30.298 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 25, SortBy: "name", SortDirection: "asc" }
+2020-12-16 12:00:30.350 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 12:00:31.376 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 25, SortBy: "name", SortDirection: "desc" }
+2020-12-16 12:00:31.427 +00:00 [Information] Returning the requested page of albums from a total of 15 albums
+2020-12-16 12:54:15.570 +00:00 [Information] Requesting album list AlbumListQuery { Skip: 0, Take: 5, SortBy: "name", SortDirection: "asc" }

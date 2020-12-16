@@ -227,6 +227,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DB_Init.sql" />
+    <Content Include="App_Data\Musicalog.mdf" />
+    <Content Include="App_Data\Musicalog_log.ldf">
+      <DependentUpon>Musicalog.mdf</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
